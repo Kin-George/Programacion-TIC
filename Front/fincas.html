@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Fincas</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse:collapse;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="Javascript/funciones.js"></script>
+	<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <h1> Manejo de base de datos </h1>
+    <h2> Consultar fincas </h2>
+    <div id="resultado"></div>
+    <button onclick="traerInformacionFincas()"> Consultar Fincas </button>
+        
+    <div>
+        <input type="number" id="id" placeholder="id">
+        <input type="text" id="name" placeholder="name">
+        <input type="text" id="address" placeholder="address">
+        <input type="number" id="extension" placeholder="extension">
+        <input type="number" id="category_id" placeholder="category_id">
+        <input type="text" id="description" placeholder="description">
+    </div>
+        
+    <button onclick="guardarInformacionFincas()">Guardar Finca!</button>
+</body>
+</html>
