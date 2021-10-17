@@ -2,14 +2,16 @@
 // Funcion para traer la informacion de la url
 function traerInformacionFincas(){
     $.ajax({
-        url:"http://129.151.109.115:81/api/Farm/all",
+        url:"http://localhost:8080/api/Farm/all",
         type:"GET",
+        contentType:"application/JSON",
         datatype:"JSON",
         success:function(respuesta){
             console.log(respuesta);
             pintarRespuestaFincas(respuesta.items)
         }
     });
+}
 
 // Funcion para estructurar en forma de tabla la informacion
 function pintarRespuestaFincas(items){
@@ -42,9 +44,10 @@ function guardarInformacionFincas(){
     };
     let dataToSend=JSON.stringify(myData);
     $.ajax({
-        url:"http://129.151.109.115:81/api/Category/save",
+        url:"http://localhost:8080/api/Farm/save",
         type:"POST",
         data:myData,
+        contentType:"application/JSON",
         datatype:"JSON",
         success:function(respuesta){
             $("#resultado").empty();
@@ -62,19 +65,20 @@ function guardarInformacionFincas(){
 
 // Seccion categorias
 // Funcion para traer la informacion de la url
-function traerInformacion2(){
+function traerInformacionCategoria(){
     $.ajax({
-        url:"http://129.151.109.115:81/api/Category/all",
+        url:"http://localhost:8080/api/Category/all",
         type:"GET",
+        contentType:"application/JSON",
         datatype:"JSON",
         success:function(respuesta){
             console.log(respuesta);
-            pintarRespuesta2(respuesta.items)
+            pintarRespuestaCategoria(respuesta.items)
         }
     });
-
+}
 // Funcion para estructurar en forma de tabla la informacion
-function pintarRespuesta2(items){
+function pintarRespuestaCategoria(items){
 
     let myTable2 ="<table>";
     for(i=0;i<items.length;i++){
@@ -82,7 +86,6 @@ function pintarRespuesta2(items){
         myTable2+="<td>"+items[i].id+"</td>";
         myTable2+="<td>"+items[i].name+"</td>";
         myTable2+="<td>"+items[i].description+"</td>";
-        myTable2+="<td> <button onclick='borrarElemento("+items[i].id+")'>Borrar</button>";
         myTable2+="</tr>";
     }
     myTable2+="</table>";
@@ -90,7 +93,7 @@ function pintarRespuesta2(items){
 }
 
 //Funcion para almacenar la informacion que se deposita en el formulario
-function guardarInformacion2(){
+function guardarInformacionCategoria(){
     let myData2={
         id:$("#id2").val(),
         name:$("#name2").val(),
@@ -98,28 +101,20 @@ function guardarInformacion2(){
     };
     let dataToSend=JSON.stringify(myData2);
     $.ajax({
-        url:"http://129.151.109.115:81/api/Category/save",
+        url:"http://localhost:8080/api/Category/save",
         type:"POST",
-        data:myData2,
+        data:dataToSend,
+        contentType:"application/JSON",
         datatype:"JSON",
         success:function(respuesta){
             $("#resultado2").empty();
             $("#id2").val("");
             $("#name2").val("");
             $("#description2").val("");
-            traerInformacion();
+            traerInformacionCategoria();
             alert("se ha guardado el dato")
         }
     });
 }
 
 
-
-
-
-
-
-
-
-}
-}
