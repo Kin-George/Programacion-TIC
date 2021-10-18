@@ -3,7 +3,6 @@ package reto3.finca.entidades;
 import java.util.List;
 import javax.persistence.*;
 import java.io.Serializable;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="categorias")

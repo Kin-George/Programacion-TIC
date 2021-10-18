@@ -15,11 +15,9 @@ public class Reservations implements Serializable {
     private Long idReservation;
 
     @Column(name="startDate", nullable = false)
-    //@Temporal(TemporalType.TIMESTAMP)
     private Date startDate;
 
     @Column(name="devolutionDate", nullable = false)
-    //@Temporal(TemporalType.TIMESTAMP)
     private Date devolutionDate;
 
     private String status="created";
