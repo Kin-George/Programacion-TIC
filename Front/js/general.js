@@ -1,5 +1,5 @@
 function urlApi() {
-    return "http://168.138.146.59:81/api";
+    return "localhost/api";
   }
 
 function formatDate(date) {
