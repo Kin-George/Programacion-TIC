@@ -18,7 +18,7 @@ public class Score implements Serializable {
 
     @OneToOne
     @JsonIgnoreProperties("score")
-    private Reservations reservation;
+    private Reservations reservations;
 
     public Integer getIdScore() {
         return idScore;
@@ -45,16 +45,10 @@ public class Score implements Serializable {
     }
 
     public Reservations getReservations() {
-        return reservation;
+        return reservations;
     }
 
     public void setReservations(Reservations reservations) {
-        this.reservation = reservations;
+        this.reservations = reservations;
     }
-
-    
-
-    
-
-    
 }
