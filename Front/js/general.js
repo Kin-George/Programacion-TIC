@@ -1,5 +1,5 @@
 function urlApi() {
-    return "localhost/api";
+    return "http://localhost:8080/api";
   }
 
 function formatDate(date) {
