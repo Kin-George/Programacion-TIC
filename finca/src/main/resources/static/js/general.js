@@ -1,5 +1,5 @@
 function urlApi() {
-    return "http://129.151.117.1/api";
+    return "http://129.151.96.77:81/api";
     //return "http://localhost:8080/api"
   }
 
