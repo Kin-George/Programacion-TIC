@@ -6,35 +6,34 @@ import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-
 @Entity
-@Table(name="reservas")
+@Table(name = "reservas")
 public class Reservations implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idReservation;
 
-    @Column(name="startDate", nullable = false)
+    @Column(name = "startDate", nullable = false)
     private Date startDate;
 
-    @Column(name="devolutionDate", nullable = false)
+    @Column(name = "devolutionDate", nullable = false)
     private Date devolutionDate;
 
-    private String status="created";
+    private String status = "created";
 
     // Relacion reservas-finca
     @ManyToOne
-    @JoinColumn(name="farm_id")
-    @JsonIgnoreProperties("reservations") 
+    @JoinColumn(name = "farm_id")
+    @JsonIgnoreProperties("reservations")
     private Farms farm;
 
     // Relacion reservas-cliente
     @ManyToOne
-    @JsonIgnoreProperties({"reservations","messages"})
+    @JsonIgnoreProperties({ "reservations", "messages" })
     private Client client;
 
     // Relacion score-reservas
-    @OneToOne(cascade = {CascadeType.REMOVE},mappedBy="reservations")
+    @OneToOne(cascade = { CascadeType.REMOVE }, mappedBy = "reservations")
     @JsonIgnoreProperties("reservations")
     private Score score;
 
@@ -94,24 +93,4 @@ public class Reservations implements Serializable {
         this.score = score;
     }
 
-    
-
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-
-
-    
-    
-
-    
-    
 }

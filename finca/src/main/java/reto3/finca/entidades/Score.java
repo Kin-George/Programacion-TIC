@@ -6,25 +6,24 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.io.Serializable;
 
-
 @Entity
-@Table(name="score")
+@Table(name = "score")
 public class Score implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idScore;
+    private Long idScore;
     private String messageText;
-    private Integer score;
+    private Integer calificacion;
 
     @OneToOne
     @JsonIgnoreProperties("score")
     private Reservations reservations;
 
-    public Integer getIdScore() {
+    public Long getIdScore() {
         return idScore;
     }
 
-    public void setIdScore(Integer idScore) {
+    public void setIdScore(Long idScore) {
         this.idScore = idScore;
     }
 
@@ -36,12 +35,12 @@ public class Score implements Serializable {
         this.messageText = messageText;
     }
 
-    public Integer getScore() {
-        return score;
+    public Integer getCalificacion() {
+        return calificacion;
     }
 
-    public void setScore(Integer score) {
-        this.score = score;
+    public void setCalificacion(Integer calificacion) {
+        this.calificacion = calificacion;
     }
 
     public Reservations getReservations() {
@@ -51,4 +50,5 @@ public class Score implements Serializable {
     public void setReservations(Reservations reservations) {
         this.reservations = reservations;
     }
+
 }

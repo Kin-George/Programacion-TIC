@@ -13,22 +13,22 @@ public class MessageService {
     @Autowired
     private MessageRepository messageRepository;
 
-    public List<Messages> getAll(){
+    public List<Messages> getAll() {
         return messageRepository.getAll();
     }
 
-    public Optional<Messages> getMessage(Long idMessage){
+    public Optional<Messages> getMessage(Long idMessage) {
         return messageRepository.getMessage(idMessage);
     }
 
-    public Messages save(Messages m){
-        if(m.getIdMessage()==null){
+    public Messages save(Messages m) {
+        if (m.getIdMessage() == null) {
             return messageRepository.save(m);
-        }else{
-            Optional <Messages> maux=messageRepository.getMessage(m.getIdMessage());
-            if(maux.isEmpty()){
+        } else {
+            Optional<Messages> maux = messageRepository.getMessage(m.getIdMessage());
+            if (maux.isEmpty()) {
                 return messageRepository.save(m);
-            }else{
+            } else {
                 return m;
             }
         }
@@ -58,4 +58,6 @@ public class MessageService {
         }).orElse(false);
         return aBoolean;
     }
+
+    
 }
